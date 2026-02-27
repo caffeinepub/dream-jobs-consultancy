@@ -1,61 +1,217 @@
 {
   "kind": "build_request",
-  "title": "Add Job Application Form Section",
-  "projectName": "Gulf Careers Portal",
-  "priority": "normal",
+  "title": "Full Dream Jobs Consultancy Website Build with All Sections and Images",
+  "projectName": "Dream Jobs Consultancy",
+  "priority": "high",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "Create a new 'Apply Now' / Job Application section component (ApplicationSection.tsx) that includes a form with fields for: Full Name, Email, Phone Number, Nationality, Position Applied For (dropdown or text), Years of Experience, and a Resume/CV upload field. The form should match the existing site's visual theme (colors, typography, card styling) and be accessible from the hero section's 'Apply' button.",
+      "text": "Update the HeroSection to display a professional AI-generated airport background image (hero-airport.dim_1920x1080.png) with blue color tone, the headline 'Empowering Careers Beyond Borders', subheading 'Premium Overseas Recruitment for Gulf Countries', four checkmark bullet points (Trusted & Verified Employers, Structured & Transparent Recruitment, Professional Visa & Documentation Support, End-to-End Deployment Assistance), an 'Apply Now' CTA button that scrolls to the application form section, and a 'WhatsApp Us' button that shows a modal or dropdown with both India (+91 63635 54699) and UAE (+971 54 214 1042) numbers for the user to choose.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-8"
+          "msg-8",
+          "msg-14"
         ],
         "quotes": [
-          "I need aad in applications apply"
+          "HERO SECTION (Top Banner)",
+          "Apply Now",
+          "WhatsApp Us",
+          "+91 63635 54699",
+          "+971 54 214 1042"
         ]
       },
       "acceptanceCriteria": [
-        "A new ApplicationSection component is created and rendered in App.tsx",
-        "The application form includes fields for Full Name, Email, Phone, Nationality, Position Applied For, Years of Experience, and Resume upload",
-        "Form styling is consistent with the existing site theme (colors, typography, card styles)",
-        "The 'Apply' button in HeroSection scrolls to or opens the ApplicationSection",
-        "The form has basic client-side validation (required fields, valid email format)",
-        "A success message is displayed after form submission"
+        "Hero section displays the airport background image with blue overlay/tone",
+        "All four checkmark bullet points are visible",
+        "Apply Now button scrolls to the application form section",
+        "WhatsApp Us button shows both India and UAE numbers for selection",
+        "Both WhatsApp links open correct wa.me URLs with the respective numbers"
       ]
     },
     {
       "id": "REQ-2",
-      "text": "Add the ApplicationSection to the site navigation in the Header component so users can navigate directly to the application form from the main menu.",
+      "text": "Update the AboutSection to display a corporate office meeting image (about-meeting.dim_800x600.png) alongside the company description. Content: 'Dream Jobs Consultancy is a professionally managed overseas recruitment firm specializing in Gulf manpower placement. We are committed to delivering reliable, ethical, and structured recruitment services aligned with international standards. Our recruitment team works closely with both candidates and employers to ensure the right talent is matched with the right opportunity. From screening to deployment, every step is handled with precision, transparency, and professionalism. We believe overseas employment is not just a job — it is a life-changing opportunity.'",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-8"
         ],
         "quotes": [
-          "I need aad in applications apply"
+          "ABOUT THE COMPANY",
+          "Dream Jobs Consultancy is a professionally managed overseas recruitment firm"
         ]
       },
       "acceptanceCriteria": [
-        "A navigation link labeled 'Apply' or 'Apply Now' appears in the Header desktop and mobile menus",
-        "Clicking the nav link smoothly scrolls to the ApplicationSection"
+        "About section displays the corporate meeting image",
+        "Full company description text is rendered",
+        "Layout is clean and professional with blue & gold color scheme"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Update the JobCategoriesSection to display all 6 complete job sectors with their full role lists as provided: Household & Domestic Staff (House Driver, Fresh House Driver, House Cook, Fresh House Cook, House Maid, House Boy, Nanny/Babysitter, Caregiver, Private Gardener), Hospitality & Hotel Staff (Waiter/Waitress, Room Attendant, Housekeeping Staff, Cleaner, Kitchen Helper, Commis Chef, Restaurant Supervisor, Receptionist), Security Services (Security Guard, CCTV Operator, Security Supervisor), Drivers & Transport (Light Vehicle Driver, Heavy Vehicle Driver, Delivery Driver, Personal Driver, Company Driver), Skilled & Technical Workers (Electrician, Plumber, AC Technician, Carpenter, Mason, Welder, Painter, Fabricator), General & Semi-Skilled Workers (Factory Worker, Packing Helper, Warehouse Worker, General Labour). Display professional category images for: hotel waiter (category-waiter.dim_400x400.png), house driver (category-driver.dim_400x400.png), security guard (category-security.dim_400x400.png), and electrician/construction worker (category-worker.dim_400x400.png). Add a footer note: 'We recruit for UAE, Saudi Arabia, Qatar, Oman, Kuwait & Bahrain.'",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-10"
+        ],
+        "quotes": [
+          "JOB CATEGORIES",
+          "Complete Overseas Recruitment Categories"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All 6 sectors are displayed with their complete role lists",
+        "Four category images are shown alongside relevant sectors",
+        "Footer note about Gulf countries is visible",
+        "Layout is responsive (accordion on mobile, grid on desktop)"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Update the RecruitmentProcessSection to display a travel-themed image (process-travel.dim_800x500.png) and the full 6-step process: 1) Application & Document Submission, 2) Screening & Shortlisting, 3) Direct Employer Interview, 4) Selection & Official Offer Letter, 5) Medical & Visa Processing, 6) Deployment & Travel Coordination. Include a note: 'We ensure smooth and secure processing until successful placement.'",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "OUR RECRUITMENT PROCESS",
+          "Step-by-Step Placement System"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Travel-themed image is displayed in the section",
+        "All 6 numbered steps are shown clearly",
+        "Closing note about smooth processing is present"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Update the VisionMissionSection to display the exact Vision and Mission text: Vision — 'To become a leading and trusted overseas recruitment partner, empowering individuals to build successful international careers while maintaining the highest standards of integrity and transparency.' Mission — 'To connect skilled professionals with verified global employers through a structured, ethical, and supportive recruitment process that prioritizes candidate welfare and long-term success.'",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "OUR VISION",
+          "OUR MISSION"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Vision and Mission headings and full text are displayed",
+        "Section uses the blue & gold brand color scheme"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Update the WhyTrustUsSection (or create an 'Our Expertise' section) to include the expertise content: 'We provide manpower solutions for Household Staff (Drivers, Cooks, House Maids, House Boys), Hospitality Professionals (Waiters, Cleaners, Supervisors), Skilled & Semi-Skilled Workers, Security Personnel. Each candidate undergoes structured screening to maintain quality placement standards.' Also display the 5 trust points: Verified International Employers, Transparent & Ethical Processing, Professional Documentation Support, Fast Interview Coordination, Dedicated Candidate Assistance, Strong Employer Network Across Gulf. Tagline: 'Integrity and professionalism define our services.'",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "OUR EXPERTISE",
+          "WHY CHOOSE DREAM JOBS CONSULTANCY"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Expertise content and all 6 trust points are displayed",
+        "Tagline is visible",
+        "Section uses consistent brand styling"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Update the ContactSection to display a customer support image (contact-support.dim_600x400.png) alongside the contact details. Content: company name 'Dream Jobs Consultancy', tagline 'Licensed Overseas Recruitment & Placement Services', India Office: +91 63635 54699, UAE Office: +971 54 214 1042, Email: ddremjob@gmail.com. Section heading: 'Begin Your Overseas Journey Today'. Include a prominent WhatsApp CTA button showing both contact numbers.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "CONTACT SECTION",
+          "Begin Your Overseas Journey Today",
+          "ddremjob@gmail.com",
+          "+91 63635 54699",
+          "+971 54 214 1042"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Customer support image is displayed",
+        "All contact details (both phone numbers and email) are correct and visible",
+        "Section heading 'Begin Your Overseas Journey Today' is rendered",
+        "WhatsApp CTA button is present and functional"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Update the ApplicationSection form to include fields for: Full Name, Phone Number, Job Category (dropdown populated from all 6 sectors and their roles), Desired Country (dropdown: UAE, Saudi Arabia, Qatar, Oman, Kuwait, Bahrain), Years of Experience, and a message/additional info text area. The form should validate required fields and show a success confirmation message upon submission.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-14"
+        ],
+        "quotes": [
+          "Apply Now button opening a job application form (name, phone, job category, desired country)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form contains all listed fields",
+        "Job Category dropdown lists roles from all 6 sectors",
+        "Desired Country dropdown has all 6 Gulf countries",
+        "Form validation prevents empty required field submission",
+        "Success confirmation is shown after submission"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Ensure the overall site uses a consistent professional blue & gold color scheme throughout all sections. Primary color: deep blue (navy). Accent color: gold/amber. Typography: clean, corporate sans-serif. All section headings, CTAs, and card borders should follow this palette. The floating WhatsApp button (WhatsAppFloat) should remain visible on all pages.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-12",
+          "msg-14"
+        ],
+        "quotes": [
+          "Use blue color tone",
+          "Professional blue & gold color scheme throughout"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All sections consistently use blue & gold color palette",
+        "No mismatched colors or off-brand elements",
+        "Floating WhatsApp button is visible and functional on all scroll positions"
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under frontend/src/hooks/ (useInternetIdentity.ts, useActor.ts) or frontend/src/main.tsx",
+    "Do not modify files under frontend/src/hooks/ or frontend/src/main.tsx",
     "Do not modify files under frontend/src/components/ui",
-    "Match existing site visual theme and Tailwind color tokens defined in tailwind.config.js and index.css"
+    "All generated images must be placed in frontend/public/assets/generated",
+    "WhatsApp links must use wa.me format with country code and no spaces"
   ],
   "nonGoals": [
-    "Backend storage or persistence of application form submissions",
-    "Email notifications or integrations upon form submission",
-    "Authentication or login for applicants",
-    "Multi-step or paginated application wizard"
+    "Backend data storage for application form submissions",
+    "Google Play Store or app store publishing",
+    "Real-time notifications or email sending",
+    "Admin dashboard or CRM features",
+    "Multi-language support"
   ],
   "imageRequirements": {
-    "required": [],
+    "required": [
+      "Professional businessman with suitcase at airport terminal, airplane visible through large windows, warm sunset lighting, blue sky, corporate travel atmosphere (hero-airport.dim_1920x1080.png)",
+      "Professional recruitment office meeting scene, two people shaking hands across a desk in a modern clean office, business attire, natural lighting (about-meeting.dim_800x600.png)",
+      "Hotel waiter in formal uniform serving drinks at a luxury restaurant table, professional service setting (category-waiter.dim_400x400.png)",
+      "House driver in neat uniform standing beside a clean luxury sedan car, professional pose (category-driver.dim_400x400.png)",
+      "Security guard in formal dark uniform standing at attention, professional corporate building background (category-security.dim_400x400.png)",
+      "Electrician or construction worker in safety vest and hard hat working on electrical panel, professional worksite (category-worker.dim_400x400.png)",
+      "Passport, boarding pass, and airplane wing visible through a window with blue sky, clean travel composition (process-travel.dim_800x500.png)",
+      "Professional female customer support executive wearing headset, smiling, clean modern office background, corporate look (contact-support.dim_600x400.png)"
+    ],
     "edits": []
   }
 }

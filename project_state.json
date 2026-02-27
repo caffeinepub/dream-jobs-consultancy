@@ -1,30 +1,140 @@
 {
   "schemaVersion": "1.0.0",
   "projectStateVersion": 3,
-  "summary": "New project",
-  "architectural_notes": [],
+  "summary": "Dream Jobs Consultancy overseas recruitment website for Gulf countries. Features hero section, about company, job categories (6 sectors), recruitment process, vision/mission, and contact sections. Professional blue & gold color scheme with AI-generated images. Apply Now button opens job application form; WhatsApp button shows both India and UAE numbers.",
+  "architectural_notes": [
+    "Professional blue & gold color scheme throughout the site",
+    "All images are AI-generated with professional corporate look, no cartoons or low-quality stock photos"
+  ],
   "known_issues": [],
   "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Professional businessman with suitcase at airport terminal, airplane visible through large windows, warm sunset lighting, blue sky, corporate travel atmosphere (hero-airport.dim_1920x1080.png)\n- Professional recruitment office meeting scene, two people shaking hands across a desk in a modern clean office, business attire, natural lighting (about-meeting.dim_800x600.png)\n- Hotel waiter in formal uniform serving drinks at a luxury restaurant table, professional service setting (category-waiter.dim_400x400.png)\n- House driver in neat uniform standing beside a clean luxury sedan car, professional pose (category-driver.dim_400x400.png)\n- Security guard in formal dark uniform standing at attention, professional corporate building background (category-security.dim_400x400.png)\n- Electrician or construction worker in safety vest and hard hat working on electrical panel, professional worksite (category-worker.dim_400x400.png)\n- Passport, boarding pass, and airplane wing visible through a window with blue sky, clean travel composition (process-travel.dim_800x500.png)\n- Professional female customer support executive wearing headset, smiling, clean modern office background, corporate look (contact-support.dim_600x400.png)",
   "existing_features": [
     {
-      "id": "feature-create-a-new-apply-now-job-application-section-component-applicationsection-tsx-that-includes-a-form-with-fields-for-full-name-email-phone-number-nationality-position-applied-for-dropdown-or-text-years-of-experience-and-a-resume-cv-upload-field-the-form-should-match-the-existing-site-s-visual-theme-colors-typography-card-styling-and-be-accessible-from-the-hero-section-s-apply-button",
-      "title": "Create a new 'Apply Now' / Job Application section component (ApplicationSection.tsx) that includes a form with fields for: Full Name, Email, Phone Number, Nationality, Position Applied For (dropdown or text), Years of Experience, and a Resume/CV upload field. The form should match the existing site's visual theme (colors, typography, card styling) and be accessible from the hero section's 'Apply' button.",
+      "id": "feature-update-the-herosection-to-display-a-professional-ai-generated-airport-background-image-hero-airport-dim-1920x1080-png-with-blue-color-tone-the-headline-empowering-careers-beyond-borders-subheading-premium-overseas-recruitment-for-gulf-countries-four-checkmark-bullet-points-trusted-verified-employers-structured-transparent-recruitment-professional-visa-documentation-support-end-to-end-deployment-assistance-an-apply-now-cta-button-that-scrolls-to-the-application-form-section-and-a-whatsapp-us-button-that-shows-a-modal-or-dropdown-with-both-india-91-63635-54699-and-uae-971-54-214-1042-numbers-for-the-user-to-choose",
+      "title": "Update the HeroSection to display a professional AI-generated airport background image (hero-airport.dim_1920x1080.png) with blue color tone, the headline 'Empowering Careers Beyond Borders', subheading 'Premium Overseas Recruitment for Gulf Countries', four checkmark bullet points (Trusted & Verified Employers, Structured & Transparent Recruitment, Professional Visa & Documentation Support, End-to-End Deployment Assistance), an 'Apply Now' CTA button that scrolls to the application form section, and a 'WhatsApp Us' button that shows a modal or dropdown with both India (+91 63635 54699) and UAE (+971 54 214 1042) numbers for the user to choose.",
       "reqIds": [
         "REQ-1"
       ],
       "version": 1
     },
     {
-      "id": "feature-add-the-applicationsection-to-the-site-navigation-in-the-header-component-so-users-can-navigate-directly-to-the-application-form-from-the-main-menu",
-      "title": "Add the ApplicationSection to the site navigation in the Header component so users can navigate directly to the application form from the main menu.",
+      "id": "feature-update-the-aboutsection-to-display-a-corporate-office-meeting-image-about-meeting-dim-800x600-png-alongside-the-company-description-content-dream-jobs-consultancy-is-a-professionally-managed-overseas-recruitment-firm-specializing-in-gulf-manpower-placement-we-are-committed-to-delivering-reliable-ethical-and-structured-recruitment-services-aligned-with-international-standards-our-recruitment-team-works-closely-with-both-candidates-and-employers-to-ensure-the-right-talent-is-matched-with-the-right-opportunity-from-screening-to-deployment-every-step-is-handled-with-precision-transparency-and-professionalism-we-believe-overseas-employment-is-not-just-a-job-it-is-a-life-changing-opportunity",
+      "title": "Update the AboutSection to display a corporate office meeting image (about-meeting.dim_800x600.png) alongside the company description. Content: 'Dream Jobs Consultancy is a professionally managed overseas recruitment firm specializing in Gulf manpower placement. We are committed to delivering reliable, ethical, and structured recruitment services aligned with international standards. Our recruitment team works closely with both candidates and employers to ensure the right talent is matched with the right opportunity. From screening to deployment, every step is handled with precision, transparency, and professionalism. We believe overseas employment is not just a job — it is a life-changing opportunity.'",
       "reqIds": [
         "REQ-2"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-jobcategoriessection-to-display-all-6-complete-job-sectors-with-their-full-role-lists-as-provided-household-domestic-staff-house-driver-fresh-house-driver-house-cook-fresh-house-cook-house-maid-house-boy-nanny-babysitter-caregiver-private-gardener-hospitality-hotel-staff-waiter-waitress-room-attendant-housekeeping-staff-cleaner-kitchen-helper-commis-chef-restaurant-supervisor-receptionist-security-services-security-guard-cctv-operator-security-supervisor-drivers-transport-light-vehicle-driver-heavy-vehicle-driver-delivery-driver-personal-driver-company-driver-skilled-technical-workers-electrician-plumber-ac-technician-carpenter-mason-welder-painter-fabricator-general-semi-skilled-workers-factory-worker-packing-helper-warehouse-worker-general-labour-display-professional-category-images-for-hotel-waiter-category-waiter-dim-400x400-png-house-driver-category-driver-dim-400x400-png-security-guard-category-security-dim-400x400-png-and-electrician-construction-worker-category-worker-dim-400x400-png-add-a-footer-note-we-recruit-for-uae-saudi-arabia-qatar-oman-kuwait-bahrain",
+      "title": "Update the JobCategoriesSection to display all 6 complete job sectors with their full role lists as provided: Household & Domestic Staff (House Driver, Fresh House Driver, House Cook, Fresh House Cook, House Maid, House Boy, Nanny/Babysitter, Caregiver, Private Gardener), Hospitality & Hotel Staff (Waiter/Waitress, Room Attendant, Housekeeping Staff, Cleaner, Kitchen Helper, Commis Chef, Restaurant Supervisor, Receptionist), Security Services (Security Guard, CCTV Operator, Security Supervisor), Drivers & Transport (Light Vehicle Driver, Heavy Vehicle Driver, Delivery Driver, Personal Driver, Company Driver), Skilled & Technical Workers (Electrician, Plumber, AC Technician, Carpenter, Mason, Welder, Painter, Fabricator), General & Semi-Skilled Workers (Factory Worker, Packing Helper, Warehouse Worker, General Labour). Display professional category images for: hotel waiter (category-waiter.dim_400x400.png), house driver (category-driver.dim_400x400.png), security guard (category-security.dim_400x400.png), and electrician/construction worker (category-worker.dim_400x400.png). Add a footer note: 'We recruit for UAE, Saudi Arabia, Qatar, Oman, Kuwait & Bahrain.'",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-recruitmentprocesssection-to-display-a-travel-themed-image-process-travel-dim-800x500-png-and-the-full-6-step-process-1-application-document-submission-2-screening-shortlisting-3-direct-employer-interview-4-selection-official-offer-letter-5-medical-visa-processing-6-deployment-travel-coordination-include-a-note-we-ensure-smooth-and-secure-processing-until-successful-placement",
+      "title": "Update the RecruitmentProcessSection to display a travel-themed image (process-travel.dim_800x500.png) and the full 6-step process: 1) Application & Document Submission, 2) Screening & Shortlisting, 3) Direct Employer Interview, 4) Selection & Official Offer Letter, 5) Medical & Visa Processing, 6) Deployment & Travel Coordination. Include a note: 'We ensure smooth and secure processing until successful placement.'",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-visionmissionsection-to-display-the-exact-vision-and-mission-text-vision-to-become-a-leading-and-trusted-overseas-recruitment-partner-empowering-individuals-to-build-successful-international-careers-while-maintaining-the-highest-standards-of-integrity-and-transparency-mission-to-connect-skilled-professionals-with-verified-global-employers-through-a-structured-ethical-and-supportive-recruitment-process-that-prioritizes-candidate-welfare-and-long-term-success",
+      "title": "Update the VisionMissionSection to display the exact Vision and Mission text: Vision — 'To become a leading and trusted overseas recruitment partner, empowering individuals to build successful international careers while maintaining the highest standards of integrity and transparency.' Mission — 'To connect skilled professionals with verified global employers through a structured, ethical, and supportive recruitment process that prioritizes candidate welfare and long-term success.'",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-whytrustussection-or-create-an-our-expertise-section-to-include-the-expertise-content-we-provide-manpower-solutions-for-household-staff-drivers-cooks-house-maids-house-boys-hospitality-professionals-waiters-cleaners-supervisors-skilled-semi-skilled-workers-security-personnel-each-candidate-undergoes-structured-screening-to-maintain-quality-placement-standards-also-display-the-5-trust-points-verified-international-employers-transparent-ethical-processing-professional-documentation-support-fast-interview-coordination-dedicated-candidate-assistance-strong-employer-network-across-gulf-tagline-integrity-and-professionalism-define-our-services",
+      "title": "Update the WhyTrustUsSection (or create an 'Our Expertise' section) to include the expertise content: 'We provide manpower solutions for Household Staff (Drivers, Cooks, House Maids, House Boys), Hospitality Professionals (Waiters, Cleaners, Supervisors), Skilled & Semi-Skilled Workers, Security Personnel. Each candidate undergoes structured screening to maintain quality placement standards.' Also display the 5 trust points: Verified International Employers, Transparent & Ethical Processing, Professional Documentation Support, Fast Interview Coordination, Dedicated Candidate Assistance, Strong Employer Network Across Gulf. Tagline: 'Integrity and professionalism define our services.'",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-contactsection-to-display-a-customer-support-image-contact-support-dim-600x400-png-alongside-the-contact-details-content-company-name-dream-jobs-consultancy-tagline-licensed-overseas-recruitment-placement-services-india-office-91-63635-54699-uae-office-971-54-214-1042-email-ddremjob-gmail-com-section-heading-begin-your-overseas-journey-today-include-a-prominent-whatsapp-cta-button-showing-both-contact-numbers",
+      "title": "Update the ContactSection to display a customer support image (contact-support.dim_600x400.png) alongside the contact details. Content: company name 'Dream Jobs Consultancy', tagline 'Licensed Overseas Recruitment & Placement Services', India Office: +91 63635 54699, UAE Office: +971 54 214 1042, Email: ddremjob@gmail.com. Section heading: 'Begin Your Overseas Journey Today'. Include a prominent WhatsApp CTA button showing both contact numbers.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-applicationsection-form-to-include-fields-for-full-name-phone-number-job-category-dropdown-populated-from-all-6-sectors-and-their-roles-desired-country-dropdown-uae-saudi-arabia-qatar-oman-kuwait-bahrain-years-of-experience-and-a-message-additional-info-text-area-the-form-should-validate-required-fields-and-show-a-success-confirmation-message-upon-submission",
+      "title": "Update the ApplicationSection form to include fields for: Full Name, Phone Number, Job Category (dropdown populated from all 6 sectors and their roles), Desired Country (dropdown: UAE, Saudi Arabia, Qatar, Oman, Kuwait, Bahrain), Years of Experience, and a message/additional info text area. The form should validate required fields and show a success confirmation message upon submission.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-overall-site-uses-a-consistent-professional-blue-gold-color-scheme-throughout-all-sections-primary-color-deep-blue-navy-accent-color-gold-amber-typography-clean-corporate-sans-serif-all-section-headings-ctas-and-card-borders-should-follow-this-palette-the-floating-whatsapp-button-whatsappfloat-should-remain-visible-on-all-pages",
+      "title": "Ensure the overall site uses a consistent professional blue & gold color scheme throughout all sections. Primary color: deep blue (navy). Accent color: gold/amber. Typography: clean, corporate sans-serif. All section headings, CTAs, and card borders should follow this palette. The floating WhatsApp button (WhatsAppFloat) should remain visible on all pages.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
     }
   ],
-  "new_feature_requests": [],
-  "projectName": "Gulf Careers Portal",
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Hero section with airport background image, blue tone, Apply Now and WhatsApp Us buttons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Apply Now button opens job application form (name, phone, job category, desired country)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "WhatsApp Us button shows both India (+91 63635 54699) and UAE (+971 54 214 1042) number options",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "About section with corporate meeting image and company description",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Job categories section with 6 sectors and professional images for each",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Step-by-step recruitment process section with travel-themed imagery",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Vision and Mission sections",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Contact section with India and UAE office details, email, and customer support image",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Dream Jobs Consultancy",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

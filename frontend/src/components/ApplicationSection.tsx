@@ -1,175 +1,156 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { CheckCircle, Upload, Loader2, FileText } from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import { CheckCircle, Loader2, Send } from 'lucide-react';
 
-const positionOptions = [
-  'Civil Engineer',
-  'Mechanical Engineer',
-  'Electrical Engineer',
-  'IT Professional',
-  'Technician / Supervisor',
-  'Registered Nurse',
-  'Doctor / Medical Professional',
-  'Medical / Lab Technician',
-  'Healthcare Assistant',
-  'Site Supervisor / Foreman',
-  'Project Manager',
-  'Mason / Carpenter / Welder',
-  'Chef / Cook',
-  'Hotel / Hospitality Staff',
-  'Housekeeping / Cleaning Staff',
-  'Factory / Production Worker',
-  'Machine Operator',
-  'Quality Controller',
-  'Construction Laborer',
-  'Warehouse / General Worker',
-  'Driver',
-  'Security Guard',
-  'Other',
+const jobCategoryGroups = [
+  {
+    group: '🏠 Household & Domestic Staff',
+    roles: [
+      'House Driver', 'Fresh House Driver', 'House Cook', 'Fresh House Cook',
+      'House Maid', 'House Boy', 'Nanny / Babysitter', 'Caregiver', 'Private Gardener',
+    ],
+  },
+  {
+    group: '🏨 Hospitality & Hotel Staff',
+    roles: [
+      'Waiter / Waitress', 'Room Attendant', 'Housekeeping Staff', 'Cleaner',
+      'Kitchen Helper', 'Commis Chef', 'Restaurant Supervisor', 'Receptionist',
+    ],
+  },
+  {
+    group: '🛡 Security Services',
+    roles: ['Security Guard', 'CCTV Operator', 'Security Supervisor'],
+  },
+  {
+    group: '🚗 Drivers & Transport',
+    roles: [
+      'Light Vehicle Driver', 'Heavy Vehicle Driver', 'Delivery Driver',
+      'Personal Driver', 'Company Driver',
+    ],
+  },
+  {
+    group: '🏗 Skilled & Technical Workers',
+    roles: [
+      'Electrician', 'Plumber', 'AC Technician', 'Carpenter',
+      'Mason', 'Welder', 'Painter', 'Fabricator',
+    ],
+  },
+  {
+    group: '🏭 General & Semi-Skilled Workers',
+    roles: ['Factory Worker', 'Packing Helper', 'Warehouse Worker', 'General Labour'],
+  },
 ];
+
+const gulfCountries = ['UAE', 'Saudi Arabia', 'Qatar', 'Oman', 'Kuwait', 'Bahrain'];
 
 interface FormData {
   fullName: string;
-  email: string;
   phone: string;
-  nationality: string;
-  position: string;
+  jobCategory: string;
+  desiredCountry: string;
   experience: string;
-  resume: File | null;
+  additionalInfo: string;
 }
 
 interface FormErrors {
   fullName?: string;
-  email?: string;
   phone?: string;
-  nationality?: string;
-  position?: string;
+  jobCategory?: string;
+  desiredCountry?: string;
   experience?: string;
-  resume?: string;
 }
 
 export function ApplicationSection() {
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
-    email: '',
     phone: '',
-    nationality: '',
-    position: '',
+    jobCategory: '',
+    desiredCountry: '',
     experience: '',
-    resume: null,
+    additionalInfo: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
-
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required.';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address.';
-    }
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required.';
-    if (!formData.nationality.trim()) newErrors.nationality = 'Nationality is required.';
-    if (!formData.position) newErrors.position = 'Please select a position.';
-    if (!formData.experience.trim()) {
-      newErrors.experience = 'Years of experience is required.';
-    } else if (isNaN(Number(formData.experience)) || Number(formData.experience) < 0) {
-      newErrors.experience = 'Please enter a valid number.';
-    }
-    if (!formData.resume) newErrors.resume = 'Please upload your resume/CV.';
-
+    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    if (!formData.jobCategory) newErrors.jobCategory = 'Please select a job category';
+    if (!formData.desiredCountry) newErrors.desiredCountry = 'Please select a desired country';
+    if (!formData.experience.trim()) newErrors.experience = 'Years of experience is required';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (field: keyof FormData, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-    if (errors[field as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [field]: undefined }));
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0] || null;
-    setFormData((prev) => ({ ...prev, resume: file }));
-    if (errors.resume) setErrors((prev) => ({ ...prev, resume: undefined }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
-
     setIsSubmitting(true);
-    // Simulate a brief processing delay for UX
-    await new Promise((resolve) => setTimeout(resolve, 1200));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
     setIsSubmitting(false);
     setIsSuccess(true);
   };
 
   const handleReset = () => {
-    setFormData({
-      fullName: '',
-      email: '',
-      phone: '',
-      nationality: '',
-      position: '',
-      experience: '',
-      resume: null,
-    });
+    setFormData({ fullName: '', phone: '', jobCategory: '', desiredCountry: '', experience: '', additionalInfo: '' });
     setErrors({});
     setIsSuccess(false);
-    if (fileInputRef.current) fileInputRef.current.value = '';
   };
 
+  if (isSuccess) {
+    return (
+      <section id="apply" className="py-16 md:py-24 bg-gradient-to-br from-brand-light to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-white rounded-2xl p-12 shadow-xl border-2 border-green-200">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="h-10 w-10 text-green-500" />
+              </div>
+              <h2 className="text-3xl font-bold text-brand-primary mb-4">Application Submitted!</h2>
+              <p className="text-gray-600 text-lg mb-2">
+                Thank you, <strong>{formData.fullName}</strong>! Your application has been received.
+              </p>
+              <p className="text-gray-500 mb-8">
+                Our team will review your application and contact you on <strong>{formData.phone}</strong> within 24–48 hours.
+              </p>
+              <div className="bg-green-50 rounded-xl p-4 mb-8 text-sm text-green-700">
+                <p>📱 For faster response, WhatsApp us at <strong>+91 63635 54699</strong> or <strong>+971 54 214 1042</strong></p>
+              </div>
+              <Button onClick={handleReset} variant="outline" className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white">
+                Submit Another Application
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section id="apply" className="py-16 md:py-24 bg-brand-light">
+    <section id="apply" className="py-16 md:py-24 bg-gradient-to-br from-brand-light to-white">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
-            Apply for a Job
+            Apply for Overseas Job
           </h2>
           <div className="w-20 h-1 bg-brand-accent mx-auto mb-6" />
           <p className="text-lg text-gray-600">
-            Take the first step towards your overseas career. Fill in the form below and our team will get in touch with you.
+            Fill in your details below and our team will contact you with matching opportunities
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
-          {isSuccess ? (
-            <div className="bg-white rounded-2xl shadow-lg p-10 text-center">
-              <div className="flex justify-center mb-6">
-                <CheckCircle className="h-20 w-20 text-brand-accent" />
-              </div>
-              <h3 className="text-2xl font-bold text-brand-primary mb-3">Application Submitted!</h3>
-              <p className="text-gray-600 mb-2 text-lg">
-                Thank you, <span className="font-semibold text-brand-primary">{formData.fullName}</span>!
-              </p>
-              <p className="text-gray-600 mb-8">
-                We have received your application for <span className="font-semibold">{formData.position}</span>. Our team will review your details and contact you shortly at <span className="font-semibold">{formData.email}</span>.
-              </p>
-              <Button
-                onClick={handleReset}
-                className="bg-brand-primary hover:bg-brand-primary/90 text-white font-semibold px-8 py-3"
-              >
-                Submit Another Application
-              </Button>
-            </div>
-          ) : (
-            <form
-              onSubmit={handleSubmit}
-              noValidate
-              className="bg-white rounded-2xl shadow-lg p-8 md:p-10 space-y-6"
-            >
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-brand-primary/10">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Full Name */}
-              <div className="space-y-1.5">
-                <Label htmlFor="fullName" className="text-sm font-semibold text-gray-700">
+              <div className="space-y-2">
+                <Label htmlFor="fullName" className="text-gray-700 font-semibold">
                   Full Name <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -177,31 +158,15 @@ export function ApplicationSection() {
                   type="text"
                   placeholder="Enter your full name"
                   value={formData.fullName}
-                  onChange={(e) => handleChange('fullName', e.target.value)}
-                  className={errors.fullName ? 'border-red-400 focus-visible:ring-red-400' : 'border-gray-300'}
+                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                  className={errors.fullName ? 'border-red-400' : ''}
                 />
-                {errors.fullName && <p className="text-xs text-red-500">{errors.fullName}</p>}
+                {errors.fullName && <p className="text-red-500 text-sm">{errors.fullName}</p>}
               </div>
 
-              {/* Email */}
-              <div className="space-y-1.5">
-                <Label htmlFor="email" className="text-sm font-semibold text-gray-700">
-                  Email Address <span className="text-red-500">*</span>
-                </Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={(e) => handleChange('email', e.target.value)}
-                  className={errors.email ? 'border-red-400 focus-visible:ring-red-400' : 'border-gray-300'}
-                />
-                {errors.email && <p className="text-xs text-red-500">{errors.email}</p>}
-              </div>
-
-              {/* Phone */}
-              <div className="space-y-1.5">
-                <Label htmlFor="phone" className="text-sm font-semibold text-gray-700">
+              {/* Phone Number */}
+              <div className="space-y-2">
+                <Label htmlFor="phone" className="text-gray-700 font-semibold">
                   Phone Number <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -209,57 +174,68 @@ export function ApplicationSection() {
                   type="tel"
                   placeholder="+91 XXXXX XXXXX"
                   value={formData.phone}
-                  onChange={(e) => handleChange('phone', e.target.value)}
-                  className={errors.phone ? 'border-red-400 focus-visible:ring-red-400' : 'border-gray-300'}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className={errors.phone ? 'border-red-400' : ''}
                 />
-                {errors.phone && <p className="text-xs text-red-500">{errors.phone}</p>}
+                {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
               </div>
 
-              {/* Nationality */}
-              <div className="space-y-1.5">
-                <Label htmlFor="nationality" className="text-sm font-semibold text-gray-700">
-                  Nationality <span className="text-red-500">*</span>
-                </Label>
-                <Input
-                  id="nationality"
-                  type="text"
-                  placeholder="e.g. Indian, Pakistani, Bangladeshi"
-                  value={formData.nationality}
-                  onChange={(e) => handleChange('nationality', e.target.value)}
-                  className={errors.nationality ? 'border-red-400 focus-visible:ring-red-400' : 'border-gray-300'}
-                />
-                {errors.nationality && <p className="text-xs text-red-500">{errors.nationality}</p>}
-              </div>
-
-              {/* Position Applied For */}
-              <div className="space-y-1.5">
-                <Label htmlFor="position" className="text-sm font-semibold text-gray-700">
-                  Position Applied For <span className="text-red-500">*</span>
+              {/* Job Category */}
+              <div className="space-y-2">
+                <Label className="text-gray-700 font-semibold">
+                  Job Category <span className="text-red-500">*</span>
                 </Label>
                 <Select
-                  value={formData.position}
-                  onValueChange={(value) => handleChange('position', value)}
+                  value={formData.jobCategory}
+                  onValueChange={(value) => setFormData({ ...formData, jobCategory: value })}
                 >
-                  <SelectTrigger
-                    id="position"
-                    className={errors.position ? 'border-red-400 focus:ring-red-400' : 'border-gray-300'}
-                  >
-                    <SelectValue placeholder="Select a position" />
+                  <SelectTrigger className={errors.jobCategory ? 'border-red-400' : ''}>
+                    <SelectValue placeholder="Select a job category" />
                   </SelectTrigger>
                   <SelectContent>
-                    {positionOptions.map((pos) => (
-                      <SelectItem key={pos} value={pos}>
-                        {pos}
+                    {jobCategoryGroups.map((group) => (
+                      <div key={group.group}>
+                        <div className="px-2 py-1.5 text-xs font-bold text-gray-500 uppercase tracking-wide bg-gray-50">
+                          {group.group}
+                        </div>
+                        {group.roles.map((role) => (
+                          <SelectItem key={role} value={role}>
+                            {role}
+                          </SelectItem>
+                        ))}
+                      </div>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {errors.jobCategory && <p className="text-red-500 text-sm">{errors.jobCategory}</p>}
+              </div>
+
+              {/* Desired Country */}
+              <div className="space-y-2">
+                <Label className="text-gray-700 font-semibold">
+                  Desired Country <span className="text-red-500">*</span>
+                </Label>
+                <Select
+                  value={formData.desiredCountry}
+                  onValueChange={(value) => setFormData({ ...formData, desiredCountry: value })}
+                >
+                  <SelectTrigger className={errors.desiredCountry ? 'border-red-400' : ''}>
+                    <SelectValue placeholder="Select desired Gulf country" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {gulfCountries.map((country) => (
+                      <SelectItem key={country} value={country}>
+                        {country}
                       </SelectItem>
                     ))}
                   </SelectContent>
                 </Select>
-                {errors.position && <p className="text-xs text-red-500">{errors.position}</p>}
+                {errors.desiredCountry && <p className="text-red-500 text-sm">{errors.desiredCountry}</p>}
               </div>
 
               {/* Years of Experience */}
-              <div className="space-y-1.5">
-                <Label htmlFor="experience" className="text-sm font-semibold text-gray-700">
+              <div className="space-y-2">
+                <Label htmlFor="experience" className="text-gray-700 font-semibold">
                   Years of Experience <span className="text-red-500">*</span>
                 </Label>
                 <Input
@@ -267,78 +243,52 @@ export function ApplicationSection() {
                   type="number"
                   min="0"
                   max="50"
-                  placeholder="e.g. 3"
+                  placeholder="e.g. 2"
                   value={formData.experience}
-                  onChange={(e) => handleChange('experience', e.target.value)}
-                  className={errors.experience ? 'border-red-400 focus-visible:ring-red-400' : 'border-gray-300'}
+                  onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
+                  className={errors.experience ? 'border-red-400' : ''}
                 />
-                {errors.experience && <p className="text-xs text-red-500">{errors.experience}</p>}
+                {errors.experience && <p className="text-red-500 text-sm">{errors.experience}</p>}
               </div>
 
-              {/* Resume Upload */}
-              <div className="space-y-1.5">
-                <Label htmlFor="resume" className="text-sm font-semibold text-gray-700">
-                  Resume / CV <span className="text-red-500">*</span>
+              {/* Additional Info */}
+              <div className="space-y-2">
+                <Label htmlFor="additionalInfo" className="text-gray-700 font-semibold">
+                  Additional Information <span className="text-gray-400 font-normal">(Optional)</span>
                 </Label>
-                <div
-                  className={`relative border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-colors ${
-                    errors.resume
-                      ? 'border-red-400 bg-red-50'
-                      : formData.resume
-                      ? 'border-brand-accent bg-green-50'
-                      : 'border-gray-300 hover:border-brand-primary bg-gray-50 hover:bg-brand-light/30'
-                  }`}
-                  onClick={() => fileInputRef.current?.click()}
-                >
-                  <input
-                    ref={fileInputRef}
-                    id="resume"
-                    type="file"
-                    accept=".pdf,.doc,.docx"
-                    className="hidden"
-                    onChange={handleFileChange}
-                  />
-                  {formData.resume ? (
-                    <div className="flex items-center justify-center gap-3">
-                      <FileText className="h-6 w-6 text-brand-accent" />
-                      <span className="text-sm font-medium text-brand-primary truncate max-w-xs">
-                        {formData.resume.name}
-                      </span>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col items-center gap-2">
-                      <Upload className="h-8 w-8 text-gray-400" />
-                      <p className="text-sm text-gray-600">
-                        <span className="font-semibold text-brand-primary">Click to upload</span> your resume
-                      </p>
-                      <p className="text-xs text-gray-400">PDF, DOC, DOCX accepted</p>
-                    </div>
-                  )}
-                </div>
-                {errors.resume && <p className="text-xs text-red-500">{errors.resume}</p>}
+                <Textarea
+                  id="additionalInfo"
+                  placeholder="Any additional skills, certifications, or information you'd like to share..."
+                  value={formData.additionalInfo}
+                  onChange={(e) => setFormData({ ...formData, additionalInfo: e.target.value })}
+                  rows={4}
+                />
               </div>
 
-              {/* Submit Button */}
               <Button
                 type="submit"
+                size="lg"
                 disabled={isSubmitting}
-                className="w-full bg-brand-accent hover:bg-brand-accent/90 text-white font-bold text-base py-6 shadow-md hover:shadow-lg transition-all"
+                className="w-full bg-brand-primary hover:bg-brand-secondary text-white font-bold text-lg py-6"
               >
                 {isSubmitting ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                    Submitting Application…
+                    Submitting Application...
                   </>
                 ) : (
-                  'Submit Application'
+                  <>
+                    <Send className="mr-2 h-5 w-5" />
+                    Submit Application
+                  </>
                 )}
               </Button>
 
-              <p className="text-xs text-gray-400 text-center">
-                By submitting, you agree to be contacted by our recruitment team regarding your application.
+              <p className="text-center text-sm text-gray-500">
+                By submitting, you agree to be contacted by Dream Jobs Consultancy regarding job opportunities.
               </p>
             </form>
-          )}
+          </div>
         </div>
       </div>
     </section>

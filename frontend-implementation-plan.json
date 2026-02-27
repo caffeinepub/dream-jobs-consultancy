@@ -1,49 +1,169 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add Job Application Form Section",
+  "title": "Full Dream Jobs Consultancy Website Build with All Sections and Images",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Create ApplicationSection component with job application form including fields for personal details, position, experience, and resume upload",
+      "summary": "Update HeroSection with airport background image, headline, bullet points, and dual WhatsApp contact modal",
       "acceptanceCriteria": [
-        "A new ApplicationSection component is created and rendered in App.tsx",
-        "The application form includes fields for Full Name, Email, Phone, Nationality, Position Applied For, Years of Experience, and Resume upload",
-        "Form styling is consistent with the existing site theme (colors, typography, card styles)",
-        "The 'Apply' button in HeroSection scrolls to or opens the ApplicationSection",
-        "The form has basic client-side validation (required fields, valid email format)",
-        "A success message is displayed after form submission"
+        "Hero section displays the airport background image with blue overlay/tone",
+        "All four checkmark bullet points are visible",
+        "Apply Now button scrolls to the application form section",
+        "WhatsApp Us button shows both India and UAE numbers for selection",
+        "Both WhatsApp links open correct wa.me URLs with the respective numbers"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/ApplicationSection.tsx",
-          "operation": "create",
-          "description": "Create ApplicationSection component with a job application form including fields for Full Name (text input), Email (email input with validation), Phone Number (tel input), Nationality (text input), Position Applied For (select dropdown with common job categories from JobCategoriesSection), Years of Experience (number input), and Resume/CV upload (file input accepting PDF/DOC formats). Use blob-storage component's ExternalBlob class for file upload with progress tracking. Implement form state management using React hooks, client-side validation for required fields and email format, and display success/error messages after submission. Style the form using Tailwind classes matching the existing site theme (cards with shadows, primary color accents from tailwind.config.js, proper spacing and typography). Include an id attribute on the section element for scroll navigation. Verify the blob-storage component's usage instructions before implementing file upload functionality."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Import ApplicationSection component and add it to the page layout after HeroSection or before ContactSection. Ensure the section is included in the DOM so it can be targeted by scroll navigation from the Header and HeroSection."
-        },
-        {
           "path": "frontend/src/components/HeroSection.tsx",
           "operation": "modify",
-          "description": "Update the 'Apply' button to scroll smoothly to the ApplicationSection using scrollIntoView with smooth behavior, targeting the ApplicationSection's id attribute. Maintain existing styling and layout."
+          "description": "Update component to use the generated airport background image at frontend/public/assets/generated/hero-airport.dim_1920x1080.png. Change headline to 'Empowering Careers Beyond Borders' and subheading to 'Premium Overseas Recruitment for Gulf Countries'. Replace existing bullet points with four checkmark items: 'Trusted & Verified Employers', 'Structured & Transparent Recruitment', 'Professional Visa & Documentation Support', 'End-to-End Deployment Assistance'. Update 'Apply Now' button to scroll to ApplicationSection. Replace single WhatsApp button with 'WhatsApp Us' button that opens a modal or dropdown showing India (+91 63635 54699) and UAE (+971 54 214 1042) numbers as selectable links opening wa.me URLs."
         }
       ]
     },
     {
       "id": "REQ-2",
-      "summary": "Add navigation link to ApplicationSection in Header component for direct access to the job application form",
+      "summary": "Update AboutSection to display corporate meeting image and full company description",
       "acceptanceCriteria": [
-        "A navigation link labeled 'Apply' or 'Apply Now' appears in the Header desktop and mobile menus",
-        "Clicking the nav link smoothly scrolls to the ApplicationSection"
+        "About section displays the corporate meeting image",
+        "Full company description text is rendered",
+        "Layout is clean and professional with blue & gold color scheme"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/Header.tsx",
+          "path": "frontend/src/components/AboutSection.tsx",
           "operation": "modify",
-          "description": "Add a new navigation item labeled 'Apply' to both desktop and mobile navigation menus. Add the corresponding scroll handler that smoothly scrolls to the ApplicationSection using scrollIntoView with smooth behavior when clicked. Ensure the new link follows the existing navigation pattern and styling, and that the mobile menu closes after clicking the Apply link (if applicable). Position the Apply link appropriately in the navigation order (e.g., after Services or before Contact)."
+          "description": "Add the corporate office meeting image at frontend/public/assets/generated/about-meeting.dim_800x600.png alongside the company description. Replace the current description with: 'Dream Jobs Consultancy is a professionally managed overseas recruitment firm specializing in Gulf manpower placement. We are committed to delivering reliable, ethical, and structured recruitment services aligned with international standards. Our recruitment team works closely with both candidates and employers to ensure the right talent is matched with the right opportunity. From screening to deployment, every step is handled with precision, transparency, and professionalism. We believe overseas employment is not just a job — it is a life-changing opportunity.' Ensure layout displays image and text side-by-side on desktop, stacked on mobile, using blue & gold brand colors."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Update JobCategoriesSection with all 6 complete job sectors, full role lists, and category images",
+      "acceptanceCriteria": [
+        "All 6 sectors are displayed with their complete role lists",
+        "Four category images are shown alongside relevant sectors",
+        "Footer note about Gulf countries is visible",
+        "Layout is responsive (accordion on mobile, grid on desktop)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/JobCategoriesSection.tsx",
+          "operation": "modify",
+          "description": "Replace existing categories with all 6 complete sectors: 1) Household & Domestic Staff (House Driver, Fresh House Driver, House Cook, Fresh House Cook, House Maid, House Boy, Nanny/Babysitter, Caregiver, Private Gardener), 2) Hospitality & Hotel Staff (Waiter/Waitress, Room Attendant, Housekeeping Staff, Cleaner, Kitchen Helper, Commis Chef, Restaurant Supervisor, Receptionist), 3) Security Services (Security Guard, CCTV Operator, Security Supervisor), 4) Drivers & Transport (Light Vehicle Driver, Heavy Vehicle Driver, Delivery Driver, Personal Driver, Company Driver), 5) Skilled & Technical Workers (Electrician, Plumber, AC Technician, Carpenter, Mason, Welder, Painter, Fabricator), 6) General & Semi-Skilled Workers (Factory Worker, Packing Helper, Warehouse Worker, General Labour). Add category images: frontend/public/assets/generated/category-waiter.dim_400x400.png for Hospitality, category-driver.dim_400x400.png for Drivers, category-security.dim_400x400.png for Security, category-worker.dim_400x400.png for Skilled Workers. Add footer note: 'We recruit for UAE, Saudi Arabia, Qatar, Oman, Kuwait & Bahrain.' Maintain accordion on mobile, grid on desktop."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Update RecruitmentProcessSection with travel-themed image and complete 6-step process",
+      "acceptanceCriteria": [
+        "Travel-themed image is displayed in the section",
+        "All 6 numbered steps are shown clearly",
+        "Closing note about smooth processing is present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/RecruitmentProcessSection.tsx",
+          "operation": "modify",
+          "description": "Add travel-themed image at frontend/public/assets/generated/process-travel.dim_800x500.png to the section. Update the process steps to exactly 6: 1) Application & Document Submission, 2) Screening & Shortlisting, 3) Direct Employer Interview, 4) Selection & Official Offer Letter, 5) Medical & Visa Processing, 6) Deployment & Travel Coordination. Add closing note below steps: 'We ensure smooth and secure processing until successful placement.' Maintain numbered card layout with professional blue & gold styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Update VisionMissionSection with exact Vision and Mission text",
+      "acceptanceCriteria": [
+        "Vision and Mission headings and full text are displayed",
+        "Section uses the blue & gold brand color scheme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/VisionMissionSection.tsx",
+          "operation": "modify",
+          "description": "Replace Vision text with: 'To become a leading and trusted overseas recruitment partner, empowering individuals to build successful international careers while maintaining the highest standards of integrity and transparency.' Replace Mission text with: 'To connect skilled professionals with verified global employers through a structured, ethical, and supportive recruitment process that prioritizes candidate welfare and long-term success.' Maintain Core Values cards if they exist, or focus only on Vision and Mission. Ensure blue & gold brand color scheme is applied."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Update WhyTrustUsSection with expertise content, 6 trust points, and tagline",
+      "acceptanceCriteria": [
+        "Expertise content and all 6 trust points are displayed",
+        "Tagline is visible",
+        "Section uses consistent brand styling"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/WhyTrustUsSection.tsx",
+          "operation": "modify",
+          "description": "Add expertise content at section top: 'We provide manpower solutions for Household Staff (Drivers, Cooks, House Maids, House Boys), Hospitality Professionals (Waiters, Cleaners, Supervisors), Skilled & Semi-Skilled Workers, Security Personnel. Each candidate undergoes structured screening to maintain quality placement standards.' Update trust points to exactly these 6: Verified International Employers, Transparent & Ethical Processing, Professional Documentation Support, Fast Interview Coordination, Dedicated Candidate Assistance, Strong Employer Network Across Gulf. Add tagline at section bottom: 'Integrity and professionalism define our services.' Maintain grid layout with icons and blue & gold styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Update ContactSection with customer support image and complete contact details",
+      "acceptanceCriteria": [
+        "Customer support image is displayed",
+        "All contact details (both phone numbers and email) are correct and visible",
+        "Section heading 'Begin Your Overseas Journey Today' is rendered",
+        "WhatsApp CTA button is present and functional"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "modify",
+          "description": "Add customer support image at frontend/public/assets/generated/contact-support.dim_600x400.png alongside contact details. Update section heading to 'Begin Your Overseas Journey Today'. Display company name 'Dream Jobs Consultancy' and tagline 'Licensed Overseas Recruitment & Placement Services'. Show India Office: +91 63635 54699, UAE Office: +971 54 214 1042, Email: ddremjob@gmail.com. Add prominent WhatsApp CTA button that shows both contact numbers (similar to HeroSection WhatsApp modal). Use blue & gold brand styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Update ApplicationSection form with all required fields and validation",
+      "acceptanceCriteria": [
+        "Form contains all listed fields",
+        "Job Category dropdown lists roles from all 6 sectors",
+        "Desired Country dropdown has all 6 Gulf countries",
+        "Form validation prevents empty required field submission",
+        "Success confirmation is shown after submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ApplicationSection.tsx",
+          "operation": "modify",
+          "description": "Update form fields to: Full Name (text, required), Phone Number (tel, required), Job Category (dropdown populated with all roles from the 6 sectors defined in REQ-3, required), Desired Country (dropdown with UAE, Saudi Arabia, Qatar, Oman, Kuwait, Bahrain, required), Years of Experience (number, required), Additional Info (textarea, optional). Add form validation that prevents submission if required fields are empty. Display success confirmation message after form submission. Maintain professional blue & gold styling consistent with site theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Ensure consistent professional blue & gold color scheme and floating WhatsApp button across all sections",
+      "acceptanceCriteria": [
+        "All sections consistently use blue & gold color palette",
+        "No mismatched colors or off-brand elements",
+        "Floating WhatsApp button is visible and functional on all scroll positions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Review and ensure CSS custom properties define primary deep blue (navy) and accent gold/amber colors. Update any conflicting color tokens to maintain consistency. Verify that brand color variables are applied globally for headings, CTAs, borders, and gradient backgrounds."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Ensure Tailwind color palette includes deep blue (navy) as primary brand color and gold/amber as accent color. Update any theme extensions to maintain professional blue & gold scheme. Verify colors are accessible and work in both light/dark modes if applicable."
+        },
+        {
+          "path": "frontend/src/components/WhatsAppFloat.tsx",
+          "operation": "modify",
+          "description": "Update the floating WhatsApp button to use the dual-number modal approach (India: +91 63635 54699, UAE: +971 54 214 1042) instead of a single hardcoded number. Ensure button remains fixed-positioned and visible on all scroll positions. Apply blue & gold brand styling to the button and modal. Use wa.me links with proper country codes and no spaces."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Review component order and ensure WhatsAppFloat component is rendered so it appears on all pages. Verify all section components are using consistent blue & gold styling props if needed. Ensure no off-brand color overrides exist in the component tree."
         }
       ]
     }

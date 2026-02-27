@@ -70,8 +70,13 @@ export default {
                     primary: 'oklch(var(--brand-primary) / <alpha-value>)',
                     secondary: 'oklch(var(--brand-secondary) / <alpha-value>)',
                     accent: 'oklch(var(--brand-accent) / <alpha-value>)',
-                    light: 'oklch(var(--brand-light) / <alpha-value>)'
+                    light: 'oklch(var(--brand-light) / <alpha-value>)',
+                    gold: 'oklch(var(--brand-gold) / <alpha-value>)'
                 }
+            },
+            fontFamily: {
+                heading: ['Poppins', 'system-ui', 'sans-serif'],
+                body: ['Roboto', 'system-ui', 'sans-serif'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -79,7 +84,8 @@ export default {
                 sm: 'calc(var(--radius) - 4px)'
             },
             boxShadow: {
-                xs: '0 1px 2px 0 rgba(0,0,0,0.05)'
+                xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
+                brand: '0 4px 24px 0 rgba(13, 71, 161, 0.15)',
             },
             keyframes: {
                 'accordion-down': {

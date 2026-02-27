@@ -1,36 +1,36 @@
-import { FileText, Search, Video, Plane, CheckCircle, HeadphonesIcon } from 'lucide-react';
+import { FileText, Search, Video, CheckCircle, Stethoscope, Plane } from 'lucide-react';
 
 export function RecruitmentProcessSection() {
   const steps = [
     {
       icon: FileText,
-      title: 'Application & Profile Review',
-      description: 'Submit your CV and complete your profile. Our team reviews your qualifications, experience, and career goals to understand your unique strengths.',
+      title: 'Application & Document Submission',
+      description: 'Submit your CV and required documents. Our team reviews your qualifications, experience, and career goals to understand your unique strengths.',
     },
     {
       icon: Search,
-      title: 'Job Matching & Verification',
-      description: 'We match you with verified employers whose requirements align with your skills. Every opportunity is vetted for legitimacy and quality.',
+      title: 'Screening & Shortlisting',
+      description: 'Candidates undergo structured screening to match skills with verified employer requirements. Only qualified candidates are shortlisted.',
     },
     {
       icon: Video,
-      title: 'Interview Preparation & Coordination',
-      description: 'Receive personalized interview coaching and guidance. We coordinate with employers and prepare you for success at every stage.',
+      title: 'Direct Employer Interview',
+      description: 'We coordinate direct interviews between shortlisted candidates and verified Gulf employers. Receive personalized coaching for success.',
     },
     {
       icon: CheckCircle,
-      title: 'Offer Evaluation & Acceptance',
-      description: 'Review job offers with our expert guidance. We ensure terms are fair, transparent, and meet your expectations before acceptance.',
+      title: 'Selection & Official Offer Letter',
+      description: 'Selected candidates receive an official offer letter. We ensure all terms are fair, transparent, and meet your expectations before acceptance.',
     },
     {
-      icon: FileText,
-      title: 'Documentation & Visa Processing',
-      description: 'Complete assistance with all required documents, visa applications, and legal formalities. We handle the paperwork so you can focus on preparation.',
+      icon: Stethoscope,
+      title: 'Medical & Visa Processing',
+      description: 'Complete assistance with medical fitness tests, visa applications, and all legal formalities. We handle the paperwork so you can focus on preparation.',
     },
     {
       icon: Plane,
-      title: 'Deployment & Ongoing Support',
-      description: 'Travel arrangements, pre-departure briefing, and continuous support even after you start your new role abroad.',
+      title: 'Deployment & Travel Coordination',
+      description: 'Travel arrangements, pre-departure briefing, and continuous support until you successfully reach your destination and start your new role.',
     },
   ];
 
@@ -40,37 +40,48 @@ export function RecruitmentProcessSection() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-brand-primary mb-4">
-              Our Comprehensive Recruitment Process
+              Step-by-Step Placement System
             </h2>
             <div className="w-20 h-1 bg-brand-accent mx-auto mb-6" />
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              A transparent, step-by-step journey from application to deployment, designed with your success in mind
+              A transparent, structured journey from application to deployment, designed with your success in mind
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {/* Travel Image */}
+          <div className="mb-12 rounded-2xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+            <img
+              src="/assets/generated/process-travel.dim_800x500.png"
+              alt="Recruitment Process - Travel & Deployment"
+              className="w-full h-auto object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = '/assets/generated/recruitment-process.dim_800x300.jpg';
+              }}
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
             {steps.map((step, index) => (
               <div
                 key={index}
                 className="relative bg-gradient-to-br from-gray-50 to-white rounded-xl p-6 border-2 border-gray-200 hover:border-brand-accent hover:shadow-lg transition-all duration-300"
               >
-                <div className="absolute -top-4 -left-4 w-10 h-10 bg-brand-accent text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                <div className="absolute -top-4 -left-4 w-10 h-10 bg-yellow-400 text-blue-900 rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
                   {index + 1}
                 </div>
                 <div className="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center mb-4 ml-6">
                   <step.icon className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-primary mb-3">{step.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                <h3 className="text-lg font-bold text-brand-primary mb-3">{step.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
               </div>
             ))}
           </div>
 
-          <div className="bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl p-8 text-center text-white">
-            <HeadphonesIcon className="h-12 w-12 mx-auto mb-4 text-brand-accent" />
-            <h3 className="text-2xl font-bold mb-3">Support at Every Step</h3>
-            <p className="text-white/90 max-w-2xl mx-auto">
-              Our dedicated team is with you throughout the entire process and beyond. From your first application to settling into your new role, we're here to ensure your success.
+          {/* Closing Note */}
+          <div className="text-center bg-gradient-to-r from-brand-primary to-brand-secondary rounded-2xl p-8 text-white shadow-xl">
+            <p className="text-xl font-semibold">
+              ✅ We ensure smooth and secure processing until successful placement.
             </p>
           </div>
         </div>
