@@ -1,0 +1,51 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Add Job Application Form Section",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create ApplicationSection component with job application form including fields for personal details, position, experience, and resume upload",
+      "acceptanceCriteria": [
+        "A new ApplicationSection component is created and rendered in App.tsx",
+        "The application form includes fields for Full Name, Email, Phone, Nationality, Position Applied For, Years of Experience, and Resume upload",
+        "Form styling is consistent with the existing site theme (colors, typography, card styles)",
+        "The 'Apply' button in HeroSection scrolls to or opens the ApplicationSection",
+        "The form has basic client-side validation (required fields, valid email format)",
+        "A success message is displayed after form submission"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ApplicationSection.tsx",
+          "operation": "create",
+          "description": "Create ApplicationSection component with a job application form including fields for Full Name (text input), Email (email input with validation), Phone Number (tel input), Nationality (text input), Position Applied For (select dropdown with common job categories from JobCategoriesSection), Years of Experience (number input), and Resume/CV upload (file input accepting PDF/DOC formats). Use blob-storage component's ExternalBlob class for file upload with progress tracking. Implement form state management using React hooks, client-side validation for required fields and email format, and display success/error messages after submission. Style the form using Tailwind classes matching the existing site theme (cards with shadows, primary color accents from tailwind.config.js, proper spacing and typography). Include an id attribute on the section element for scroll navigation. Verify the blob-storage component's usage instructions before implementing file upload functionality."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import ApplicationSection component and add it to the page layout after HeroSection or before ContactSection. Ensure the section is included in the DOM so it can be targeted by scroll navigation from the Header and HeroSection."
+        },
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "modify",
+          "description": "Update the 'Apply' button to scroll smoothly to the ApplicationSection using scrollIntoView with smooth behavior, targeting the ApplicationSection's id attribute. Maintain existing styling and layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Add navigation link to ApplicationSection in Header component for direct access to the job application form",
+      "acceptanceCriteria": [
+        "A navigation link labeled 'Apply' or 'Apply Now' appears in the Header desktop and mobile menus",
+        "Clicking the nav link smoothly scrolls to the ApplicationSection"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "modify",
+          "description": "Add a new navigation item labeled 'Apply' to both desktop and mobile navigation menus. Add the corresponding scroll handler that smoothly scrolls to the ApplicationSection using scrollIntoView with smooth behavior when clicked. Ensure the new link follows the existing navigation pattern and styling, and that the mobile menu closes after clicking the Apply link (if applicable). Position the Apply link appropriately in the navigation order (e.g., after Services or before Contact)."
+        }
+      ]
+    }
+  ]
+}

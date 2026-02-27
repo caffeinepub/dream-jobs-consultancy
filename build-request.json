@@ -1,0 +1,61 @@
+{
+  "kind": "build_request",
+  "title": "Add Job Application Form Section",
+  "projectName": "Gulf Careers Portal",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a new 'Apply Now' / Job Application section component (ApplicationSection.tsx) that includes a form with fields for: Full Name, Email, Phone Number, Nationality, Position Applied For (dropdown or text), Years of Experience, and a Resume/CV upload field. The form should match the existing site's visual theme (colors, typography, card styling) and be accessible from the hero section's 'Apply' button.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "I need aad in applications apply"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A new ApplicationSection component is created and rendered in App.tsx",
+        "The application form includes fields for Full Name, Email, Phone, Nationality, Position Applied For, Years of Experience, and Resume upload",
+        "Form styling is consistent with the existing site theme (colors, typography, card styles)",
+        "The 'Apply' button in HeroSection scrolls to or opens the ApplicationSection",
+        "The form has basic client-side validation (required fields, valid email format)",
+        "A success message is displayed after form submission"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Add the ApplicationSection to the site navigation in the Header component so users can navigate directly to the application form from the main menu.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8"
+        ],
+        "quotes": [
+          "I need aad in applications apply"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A navigation link labeled 'Apply' or 'Apply Now' appears in the Header desktop and mobile menus",
+        "Clicking the nav link smoothly scrolls to the ApplicationSection"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/hooks/ (useInternetIdentity.ts, useActor.ts) or frontend/src/main.tsx",
+    "Do not modify files under frontend/src/components/ui",
+    "Match existing site visual theme and Tailwind color tokens defined in tailwind.config.js and index.css"
+  ],
+  "nonGoals": [
+    "Backend storage or persistence of application form submissions",
+    "Email notifications or integrations upon form submission",
+    "Authentication or login for applicants",
+    "Multi-step or paginated application wizard"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

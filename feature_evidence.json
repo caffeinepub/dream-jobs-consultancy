@@ -1,0 +1,45 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-new-apply-now-job-application-section-component-applicationsection-tsx-that-includes-a-form-with-fields-for-full-name-email-phone-number-nationality-position-applied-for-dropdown-or-text-years-of-experience-and-a-resume-cv-upload-field-the-form-should-match-the-existing-site-s-visual-theme-colors-typography-card-styling-and-be-accessible-from-the-hero-section-s-apply-button",
+      "featureTitle": "Create a new 'Apply Now' / Job Application section component (ApplicationSection.tsx) that includes a form with fields for: Full Name, Email, Phone Number, Nationality, Position Applied For (dropdown or text), Years of Experience, and a Resume/CV upload field. The form should match the existing site's visual theme (colors, typography, card styling) and be accessible from the hero section's 'Apply' button.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ApplicationSection.tsx",
+        "frontend/src/components/HeroSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-applicationsection-to-the-site-navigation-in-the-header-component-so-users-can-navigate-directly-to-the-application-form-from-the-main-menu",
+      "featureTitle": "Add the ApplicationSection to the site navigation in the Header component so users can navigate directly to the application form from the main menu.",
+      "files": [
+        "frontend/src/components/Header.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "blob-storage@4.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
